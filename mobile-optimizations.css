@@ -1,81 +1,77 @@
-/* Mobile Optimizations for Animations and Background */
+/* Mobile Performance Optimizations */
 
 @media (max-width: 768px) {
 
-    /* Optimize planet size for mobile */
+    /* Smaller, lighter planet for mobile */
     body::before {
-        width: 600px !important;
-        height: 600px !important;
-        opacity: 0.2 !important;
+        width: 500px !important;
+        height: 500px !important;
+        opacity: 0.15 !important;
+        animation: none !important;
+        /* Disable rotation on mobile for performance */
     }
 
-    /* Reduce animation complexity on mobile for performance */
+    /* Disable floating animations on mobile */
     .image-wrapper,
     .image-frame {
-        animation-duration: 8s !important;
+        animation: none !important;
     }
 
-    /* Smoother project cards on mobile */
+    /* Faster, simpler transitions */
+    .project-card {
+        transition: transform 0.2s ease !important;
+    }
+
     .project-card:hover {
-        transform: translateY(-8px) scale(1.01) !important;
+        transform: translateY(-5px) !important;
     }
 
-    /* Optimize overlay for touch */
+    /* Optimize overlay */
     .project-overlay {
-        backdrop-filter: blur(3px) !important;
+        backdrop-filter: none !important;
+        background: rgba(10, 10, 15, 0.92) !important;
     }
 
-    /* Name glow optimization for mobile */
-    .name {
-        text-shadow:
-            0 0 15px rgba(167, 139, 250, 0.8),
-            0 0 30px rgba(167, 139, 250, 0.5) !important;
+    /* Disable heavy effects */
+    * {
+        will-change: auto !important;
+        backface-visibility: visible !important;
     }
 }
 
 @media (max-width: 480px) {
 
-    /* Smaller planet on very small screens */
+    /* Even smaller planet on very small screens */
     body::before {
-        width: 400px !important;
-        height: 400px !important;
-        opacity: 0.15 !important;
+        width: 350px !important;
+        height: 350px !important;
+        opacity: 0.1 !important;
     }
 
-    /* Single column for projects on small phones */
+    /* Single column for projects */
     .work-grid {
         grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
     }
 
-    /* Reduce animation intensity */
-    .image-wrapper,
-    .image-frame {
-        animation: float 10s ease-in-out infinite !important;
+    /* Smaller project cards */
+    .project-card {
+        min-height: 180px !important;
     }
 
-    /* Optimize name for small screens */
-    .name {
-        font-size: 2rem !important;
-        text-shadow:
-            0 0 10px rgba(167, 139, 250, 0.7),
-            0 0 20px rgba(167, 139, 250, 0.4) !important;
+    /* Reduce all transitions */
+    * {
+        transition-duration: 0.15s !important;
     }
 }
 
-/* Disable heavy animations on low-end devices */
+/* Disable animations on low-end devices */
 @media (prefers-reduced-motion: reduce) {
-    body::before {
-        animation: none !important;
-    }
 
-    .image-wrapper,
-    .image-frame {
+    *,
+    *::before,
+    *::after {
         animation: none !important;
-    }
-
-    .project-card,
-    .btn,
-    .social-link {
-        transition-duration: 0.1s !important;
+        transition-duration: 0.01ms !important;
     }
 }
