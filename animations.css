@@ -1,306 +1,182 @@
-/* Trendy Modern Animations */
+/* Fast & Trendy Animations - Performance Optimized */
 
-/* Remove old floating animation for hero */
+/* Disable heavy animations for better performance */
 .hero-image {
-    animation: fadeInRight 1s ease-out !important;
+    animation: fadeInRight 0.6s ease-out !important;
 }
 
-/* Trendy slide-up reveal for sections */
-@keyframes trendySlideUp {
+/* Quick fade-in for sections */
+@keyframes quickFadeIn {
     from {
         opacity: 0;
-        transform: translateY(60px);
-        filter: blur(10px);
+        transform: translateY(20px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
-        filter: blur(0);
     }
 }
 
-/* Trendy scale-fade for project cards */
-@keyframes trendyScaleFade {
+/* Fast scale for project cards */
+@keyframes quickScale {
     from {
         opacity: 0;
-        transform: scale(0.8) rotateY(-15deg);
-        filter: blur(5px);
+        transform: scale(0.95);
     }
 
     to {
         opacity: 1;
-        transform: scale(1) rotateY(0deg);
-        filter: blur(0);
+        transform: scale(1);
     }
 }
 
-/* Magnetic hover effect for project cards */
+/* Project cards - simple and fast */
 .project-card {
     opacity: 0;
-    animation: trendyScaleFade 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
-    transform-style: preserve-3d;
-    perspective: 1000px;
+    animation: quickScale 0.4s ease-out forwards !important;
+    will-change: transform;
 }
 
-.project-card:hover {
-    transform: translateY(-20px) scale(1.05) rotateX(2deg) !important;
-    box-shadow: 0 30px 80px rgba(139, 92, 246, 0.5) !important;
-    z-index: 10;
-}
-
-/* Staggered delays for trendy entrance */
+/* Staggered but faster */
 .project-card:nth-child(1) {
-    animation-delay: 0.1s;
+    animation-delay: 0.05s;
 }
 
 .project-card:nth-child(2) {
-    animation-delay: 0.15s;
-}
-
-.project-card:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.project-card:nth-child(4) {
-    animation-delay: 0.25s;
-}
-
-.project-card:nth-child(5) {
-    animation-delay: 0.3s;
-}
-
-.project-card:nth-child(6) {
-    animation-delay: 0.35s;
-}
-
-.project-card:nth-child(7) {
-    animation-delay: 0.4s;
-}
-
-.project-card:nth-child(8) {
-    animation-delay: 0.45s;
-}
-
-.project-card:nth-child(9) {
-    animation-delay: 0.5s;
-}
-
-.project-card:nth-child(10) {
-    animation-delay: 0.55s;
-}
-
-/* Glowing border animation on hover */
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, var(--purple-main), var(--brown-main), var(--purple-light));
-    border-radius: 22px;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.4s ease;
-    filter: blur(10px);
-}
-
-.project-card:hover::before {
-    opacity: 1;
-    animation: borderGlow 2s ease-in-out infinite;
-}
-
-@keyframes borderGlow {
-
-    0%,
-    100% {
-        filter: blur(10px) brightness(1);
-    }
-
-    50% {
-        filter: blur(15px) brightness(1.5);
-    }
-}
-
-/* Trendy button animations */
-.btn {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.btn:hover {
-    transform: translateY(-5px) scale(1.05) !important;
-    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6) !important;
-}
-
-/* Trendy social links with 3D effect */
-.social-link {
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform-style: preserve-3d;
-}
-
-.social-link:hover {
-    transform: translateY(-10px) scale(1.15) rotateZ(10deg) !important;
-    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.5) !important;
-}
-
-/* Trendy stats with bounce */
-.stat-item {
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.stat-item:hover {
-    transform: translateY(-15px) scale(1.1) rotate(-2deg) !important;
-    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.4) !important;
-}
-
-.stat-item:hover h4 {
-    animation: bounceNumber 0.6s ease;
-}
-
-@keyframes bounceNumber {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-/* Trendy skill bars with wave effect */
-.skill-progress {
-    position: relative;
-    overflow: visible !important;
-}
-
-.skill-progress::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 4px);
-    background: linear-gradient(90deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.4) 50%,
-            transparent 100%);
-    animation: skillWave 2s ease-in-out infinite;
-    border-radius: 10px;
-}
-
-@keyframes skillWave {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(200%);
-    }
-}
-
-/* Trendy section reveals */
-section {
-    opacity: 0;
-    animation: trendySlideUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
-}
-
-section:nth-child(2) {
     animation-delay: 0.1s;
 }
 
-section:nth-child(3) {
+.project-card:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.project-card:nth-child(4) {
     animation-delay: 0.2s;
 }
 
-section:nth-child(4) {
+.project-card:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.project-card:nth-child(6) {
     animation-delay: 0.3s;
 }
 
-section:nth-child(5) {
+.project-card:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.project-card:nth-child(8) {
     animation-delay: 0.4s;
 }
 
-/* Trendy nav links with underline slide */
+.project-card:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.project-card:nth-child(10) {
+    animation-delay: 0.5s;
+}
+
+/* Simple hover - no 3D transforms for performance */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Simple button hover */
+.btn {
+    transition: all 0.3s ease !important;
+}
+
+.btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.5) !important;
+}
+
+/* Simple social links */
+.social-link {
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-5px) scale(1.1) !important;
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Simple stats */
+.stat-item {
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Fast section reveals */
+section {
+    opacity: 0;
+    animation: quickFadeIn 0.5s ease-out forwards !important;
+}
+
+section:nth-child(2) {
+    animation-delay: 0.05s;
+}
+
+section:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+section:nth-child(4) {
+    animation-delay: 0.15s;
+}
+
+section:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+/* Simple nav underline */
 .nav-link::after {
     content: '';
     position: absolute;
     bottom: -5px;
     left: 0;
     width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--purple-main), var(--brown-main));
-    transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    border-radius: 2px;
+    height: 2px;
+    background: var(--purple-main);
+    transition: width 0.3s ease;
 }
 
 .nav-link:hover::after {
     width: 100%;
 }
 
-/* Parallax effect for images */
-.about-img,
-.profile-img {
-    transition: transform 0.3s ease;
-}
-
-.about-image:hover .about-img,
-.image-wrapper:hover .profile-img {
-    transform: scale(1.1) rotate(2deg);
-}
-
-/* Trendy contact cards */
+/* Simple contact cards */
 .social-card {
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform-style: preserve-3d;
+    transition: all 0.3s ease;
 }
 
 .social-card:hover {
-    transform: translateY(-15px) scale(1.08) rotateX(5deg) !important;
-    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.5) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4) !important;
 }
 
-.social-card:hover i {
-    animation: iconBounce 0.6s ease;
-}
-
-@keyframes iconBounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Smooth scroll with easing */
+/* Smooth scroll */
 html {
     scroll-behavior: smooth;
+}
+
+/* Performance: Use GPU acceleration */
+.project-card,
+.btn,
+.social-link,
+.stat-item,
+.social-card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 /* Reduce motion for accessibility */

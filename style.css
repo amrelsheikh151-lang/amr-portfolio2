@@ -112,17 +112,6 @@ body::after {
     }
 }
 
-@keyframes planetFloat {
-
-    0%,
-    100% {
-        top: -10%;
-    }
-
-    50% {
-        top: -5%;
-    }
-}
 
 /* Container */
 .container {
