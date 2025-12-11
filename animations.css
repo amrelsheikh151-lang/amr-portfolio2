@@ -1,13 +1,45 @@
-/* Smooth Animations - Performance Optimized */
+/* Smooth Project Card Animations */
 
-/* Project cards - smooth and simple */
+/* Project cards - ultra smooth */
 .project-card {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform-origin: center;
 }
 
 .project-card:hover {
-    transform: translateY(-10px) scale(1.02) !important;
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4) !important;
+    transform: translateY(-12px) scale(1.02) !important;
+    box-shadow:
+        0 20px 40px rgba(139, 92, 246, 0.3),
+        0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Smooth overlay slide-up */
+.project-overlay {
+    will-change: opacity, transform;
+}
+
+.project-overlay h3 {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+.project-overlay p {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+}
+
+.project-overlay .project-link {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.project-card:hover .project-overlay h3 {
+    transform: translateY(0);
+}
+
+.project-card:hover .project-overlay p {
+    transform: translateY(0);
+}
+
+.project-card:hover .project-overlay .project-link {
+    transform: translateY(0);
 }
 
 /* Smooth button hover */
@@ -52,10 +84,12 @@
 
 /* GPU acceleration for smooth performance */
 .project-card,
+.project-overlay,
 .btn,
 .social-link,
 .stat-item,
 .social-card {
     will-change: transform;
     backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
 }
