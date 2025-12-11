@@ -1,0 +1,22 @@
+# Ignore compressed archives
+*.rar
+*.zip
+*.7z
+
+# Ignore backup files
+*.backup
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore node modules if any
+node_modules/
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore very large original images (keep compressed versions)
+# Add specific large files if needed

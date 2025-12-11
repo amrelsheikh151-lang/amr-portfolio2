@@ -1,0 +1,91 @@
+/* Mobile-First Responsive Overrides */
+
+/* Force desktop layout on all screen sizes */
+@media (max-width: 768px) {
+
+    /* Keep desktop grid for projects */
+    .work-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    }
+
+    /* Keep hero layout */
+    .hero-container {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem !important;
+    }
+
+    /* Scale down text slightly but keep layout */
+    .name {
+        font-size: 3rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem !important;
+    }
+
+    /* Keep about layout */
+    .about-content {
+        grid-template-columns: 1fr 2fr !important;
+    }
+
+    /* Keep stats in one row */
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    /* Keep skills grid */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+    }
+
+    /* Keep contact grid */
+    .contact-content {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    /* Adjust only very small elements */
+    .image-wrapper {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .image-frame {
+        width: 250px !important;
+        height: 250px !important;
+    }
+}
+
+/* For very small screens (phones in portrait) */
+@media (max-width: 480px) {
+
+    /* Still try to keep 2 columns where possible */
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr !important;
+    }
+
+    .name {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* Fix for stat numbers - ensure K is visible */
+.stat-item h4 {
+    color: var(--purple-light) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}

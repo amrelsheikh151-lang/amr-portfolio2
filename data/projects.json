@@ -1,0 +1,211 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Profile Design",
+      "category": "Brand Identity",
+      "behanceUrl": "https://www.behance.net/gallery/234321043/profile",
+      "description": "A comprehensive brand identity design project showcasing modern design principles and creative visual solutions.",
+      "year": "2024",
+      "tools": "Photoshop, Illustrator"
+    },
+    {
+      "id": 2,
+      "title": "German Company Product",
+      "category": "Product Design",
+      "behanceUrl": "https://www.behance.net/gallery/233736491/German-Copmany-Product",
+      "description": "Professional product design and marketing materials for a leading German company.",
+      "year": "2024",
+      "tools": "Photoshop, Illustrator"
+    },
+    {
+      "id": 3,
+      "title": "ALOMDa Home Design",
+      "category": "Brand Identity",
+      "behanceUrl": "https://www.behance.net/gallery/231554215/ALOMDa-Home-Design-Brand-Identity-UAE",
+      "description": "Complete brand identity design for ALOMDa Home Design based in UAE.",
+      "year": "2024",
+      "tools": "Photoshop, Illustrator"
+    },
+    {
+      "id": 4,
+      "title": "Liberation Day",
+      "category": "Social Media Campaign",
+      "behanceUrl": "https://www.behance.net/gallery/224301985/Liberation-Day",
+      "description": "Social media campaign celebrating Liberation Day with impactful visuals.",
+      "year": "2024",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 5,
+      "title": "Happy Easter",
+      "category": "Social Media Design",
+      "behanceUrl": "https://www.behance.net/gallery/224301895/Happy-Easter",
+      "description": "Festive Easter social media designs with vibrant colors and creative concepts.",
+      "year": "2024",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 6,
+      "title": "Happy Easter - Happy Labour Day",
+      "category": "Social Media Campaign",
+      "behanceUrl": "https://www.behance.net/gallery/224231697/Happy-Easter-Happy-Labour-Day",
+      "description": "Combined celebration campaign for Easter and Labour Day.",
+      "year": "2024",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 7,
+      "title": "Bulgarian Company",
+      "category": "Marketing Campaign",
+      "behanceUrl": "https://www.behance.net/gallery/223890459/Bulgarian-Company",
+      "description": "Marketing campaign design for Bulgarian company with modern approach.",
+      "year": "2024",
+      "tools": "Photoshop, Illustrator"
+    },
+    {
+      "id": 8,
+      "title": "Italian Company Campaign",
+      "category": "Marketing Design",
+      "behanceUrl": "https://www.behance.net/gallery/223390643/Italian-Company-Campaign",
+      "description": "Professional marketing materials for Italian company campaign.",
+      "year": "2024",
+      "tools": "Photoshop, Illustrator"
+    },
+    {
+      "id": 9,
+      "title": "Ramadan Series",
+      "category": "Motion Graphics",
+      "behanceUrl": "https://www.behance.net/gallery/223000285/Ramdan-Series",
+      "description": "Motion graphics series for Ramadan with cultural themes.",
+      "year": "2024",
+      "tools": "After Effects, Photoshop"
+    },
+    {
+      "id": 10,
+      "title": "Sea Air",
+      "category": "Brand Design",
+      "behanceUrl": "https://www.behance.net/gallery/216147463/Sea-Air",
+      "description": "Brand design project for Sea Air with maritime aesthetics.",
+      "year": "2023",
+      "tools": "Illustrator, Photoshop"
+    },
+    {
+      "id": 11,
+      "title": "Printing",
+      "category": "Print Design",
+      "behanceUrl": "https://www.behance.net/gallery/206678287/Printing",
+      "description": "Collection of professional print design work and materials.",
+      "year": "2023",
+      "tools": "Photoshop, Illustrator"
+    },
+    {
+      "id": 12,
+      "title": "Various Designs",
+      "category": "Mixed Media",
+      "behanceUrl": "https://www.behance.net/gallery/206677425/Various",
+      "description": "Diverse collection of design work across multiple categories.",
+      "year": "2023",
+      "tools": "Photoshop, Illustrator"
+    },
+    {
+      "id": 13,
+      "title": "Zamalek SC",
+      "category": "Sports Branding",
+      "behanceUrl": "https://www.behance.net/gallery/206677263/Zamalek-SC",
+      "description": "Sports branding and visual identity for Zamalek SC football club.",
+      "year": "2023",
+      "tools": "Photoshop, Illustrator"
+    },
+    {
+      "id": 14,
+      "title": "Ramadan Kareem",
+      "category": "Social Media",
+      "behanceUrl": "https://www.behance.net/gallery/206677197/Ramadan-Kareem",
+      "description": "Ramadan Kareem social media designs with traditional elements.",
+      "year": "2023",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 15,
+      "title": "Eid Al-Fitr",
+      "category": "Social Media Design",
+      "behanceUrl": "https://www.behance.net/gallery/206677145/Eid-Al-Fitr",
+      "description": "Eid Al-Fitr celebration designs for social media platforms.",
+      "year": "2023",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 16,
+      "title": "Eid Al-Adha",
+      "category": "Social Media Campaign",
+      "behanceUrl": "https://www.behance.net/gallery/206677109/Eid-Al-Adha",
+      "description": "Eid Al-Adha social media campaign with festive visuals.",
+      "year": "2023",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 17,
+      "title": "Christmas",
+      "category": "Holiday Design",
+      "behanceUrl": "https://www.behance.net/gallery/206677073/Christmas",
+      "description": "Christmas holiday designs with seasonal themes and colors.",
+      "year": "2023",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 18,
+      "title": "New Year",
+      "category": "Social Media",
+      "behanceUrl": "https://www.behance.net/gallery/206677041/New-Year",
+      "description": "New Year celebration social media designs.",
+      "year": "2023",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 19,
+      "title": "Valentine's Day",
+      "category": "Social Media Design",
+      "behanceUrl": "https://www.behance.net/gallery/206677009/Valentine's-Day",
+      "description": "Valentine's Day themed social media designs with romantic elements.",
+      "year": "2023",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 20,
+      "title": "Mother's Day",
+      "category": "Social Media Campaign",
+      "behanceUrl": "https://www.behance.net/gallery/206676977/Mother's-Day",
+      "description": "Mother's Day social media campaign celebrating mothers.",
+      "year": "2023",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 21,
+      "title": "Father's Day",
+      "category": "Social Media Design",
+      "behanceUrl": "https://www.behance.net/gallery/206676945/Father's-Day",
+      "description": "Father's Day social media designs honoring fathers.",
+      "year": "2023",
+      "tools": "Photoshop"
+    },
+    {
+      "id": 22,
+      "title": "Logo Design",
+      "category": "Brand Identity",
+      "behanceUrl": "https://www.behance.net/gallery/206676913/Logo-Design",
+      "description": "Collection of professional logo designs for various clients.",
+      "year": "2023",
+      "tools": "Illustrator"
+    },
+    {
+      "id": 23,
+      "title": "Business Card",
+      "category": "Print & Branding",
+      "behanceUrl": "https://www.behance.net/gallery/206676881/Business-Card",
+      "description": "Professional business card designs with creative layouts.",
+      "year": "2023",
+      "tools": "Illustrator, Photoshop"
+    }
+  ]
+}
