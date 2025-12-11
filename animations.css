@@ -1,94 +1,18 @@
-/* Fast & Trendy Animations - Performance Optimized */
+/* Smooth Animations - Performance Optimized */
 
-/* Disable heavy animations for better performance */
-.hero-image {
-    animation: fadeInRight 0.6s ease-out !important;
-}
-
-/* Quick fade-in for sections */
-@keyframes quickFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Fast scale for project cards */
-@keyframes quickScale {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Project cards - simple and fast */
+/* Project cards - smooth and simple */
 .project-card {
-    opacity: 0;
-    animation: quickScale 0.4s ease-out forwards !important;
-    will-change: transform;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Staggered but faster */
-.project-card:nth-child(1) {
-    animation-delay: 0.05s;
-}
-
-.project-card:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.project-card:nth-child(3) {
-    animation-delay: 0.15s;
-}
-
-.project-card:nth-child(4) {
-    animation-delay: 0.2s;
-}
-
-.project-card:nth-child(5) {
-    animation-delay: 0.25s;
-}
-
-.project-card:nth-child(6) {
-    animation-delay: 0.3s;
-}
-
-.project-card:nth-child(7) {
-    animation-delay: 0.35s;
-}
-
-.project-card:nth-child(8) {
-    animation-delay: 0.4s;
-}
-
-.project-card:nth-child(9) {
-    animation-delay: 0.45s;
-}
-
-.project-card:nth-child(10) {
-    animation-delay: 0.5s;
-}
-
-/* Simple hover - no 3D transforms for performance */
 .project-card:hover {
-    transform: translateY(-10px) scale(1.03) !important;
+    transform: translateY(-10px) scale(1.02) !important;
     box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4) !important;
-    transition: all 0.3s ease !important;
 }
 
-/* Simple button hover */
+/* Smooth button hover */
 .btn {
-    transition: all 0.3s ease !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .btn:hover {
@@ -96,9 +20,9 @@
     box-shadow: 0 10px 25px rgba(139, 92, 246, 0.5) !important;
 }
 
-/* Simple social links */
+/* Smooth social links */
 .social-link {
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover {
@@ -106,9 +30,9 @@
     box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4) !important;
 }
 
-/* Simple stats */
+/* Smooth stats */
 .stat-item {
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .stat-item:hover {
@@ -116,47 +40,9 @@
     box-shadow: 0 15px 30px rgba(139, 92, 246, 0.3) !important;
 }
 
-/* Fast section reveals */
-section {
-    opacity: 0;
-    animation: quickFadeIn 0.5s ease-out forwards !important;
-}
-
-section:nth-child(2) {
-    animation-delay: 0.05s;
-}
-
-section:nth-child(3) {
-    animation-delay: 0.1s;
-}
-
-section:nth-child(4) {
-    animation-delay: 0.15s;
-}
-
-section:nth-child(5) {
-    animation-delay: 0.2s;
-}
-
-/* Simple nav underline */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--purple-main);
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* Simple contact cards */
+/* Smooth contact cards */
 .social-card {
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-card:hover {
@@ -164,29 +50,12 @@ section:nth-child(5) {
     box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4) !important;
 }
 
-/* Smooth scroll */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Performance: Use GPU acceleration */
+/* GPU acceleration for smooth performance */
 .project-card,
 .btn,
 .social-link,
 .stat-item,
 .social-card {
-    transform: translateZ(0);
+    will-change: transform;
     backface-visibility: hidden;
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
