@@ -379,7 +379,7 @@ body::after {
     align-items: center;
     gap: 10px;
     color: var(--text-secondary);
-    animation: bounce 2s infinite;
+    animation: planetRotate 180s linear infinite;
 }
 
 /* Section Styles */

@@ -1,47 +1,37 @@
-/* Minimal Animations - Maximum Performance */
+/* Light Animations - Performance First */
 
-/* Disable all heavy animations */
-.image-wrapper,
-.image-frame {
-    animation: none !important;
-}
-
-body::before {
-    animation: none !important;
-}
-
-/* Simple, fast hover effects only */
+/* Simple hover effects only - no heavy animations */
 .project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.3);
 }
 
 .btn {
-    transition: transform 0.2s ease !important;
+    transition: transform 0.2s ease;
 }
 
 .btn:hover {
-    transform: translateY(-2px) !important;
+    transform: translateY(-2px);
 }
 
-/* Remove all other animations */
 .social-link,
 .stat-item,
 .social-card {
-    transition: transform 0.2s ease !important;
+    transition: transform 0.2s ease;
 }
 
-.social-link:hover,
-.stat-item:hover,
+.social-link:hover {
+    transform: translateY(-4px);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
 .social-card:hover {
-    transform: translateY(-3px) !important;
-}
-
-/* Disable GPU-heavy effects */
-* {
-    will-change: auto !important;
+    transform: translateY(-5px);
 }

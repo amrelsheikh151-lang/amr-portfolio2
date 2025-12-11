@@ -1,2 +1,31 @@
-/* No Profile Animations - Performance First */
-/* All animations disabled for speed */
+/* Light Profile Animations - Performance Optimized */
+
+/* Gentle floating for hero image */
+@keyframes gentleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Apply to hero image wrapper - slower for performance */
+.image-wrapper {
+    animation: gentleFloat 8s ease-in-out infinite;
+}
+
+/* Apply to about image frame - offset timing */
+.image-frame {
+    animation: gentleFloat 9s ease-in-out infinite 0.5s;
+}
+
+/* Simple hover scale */
+.image-wrapper:hover,
+.image-frame:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}
