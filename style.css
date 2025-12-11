@@ -84,7 +84,7 @@ body::before {
     opacity: 0.3;
     pointer-events: none;
     z-index: -2;
-    animation: planetRotate 120s linear infinite, planetFloat 30s ease-in-out infinite;
+    animation: planetRotate 120s linear infinite;
     will-change: transform;
 }
 
