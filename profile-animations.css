@@ -13,19 +13,21 @@
     }
 }
 
-/* Apply to hero image wrapper - slower for performance */
-.image-wrapper {
-    animation: gentleFloat 8s ease-in-out infinite;
-}
+/* Apply to hero image wrapper - DESKTOP ONLY */
+@media (min-width: 769px) {
+    .image-wrapper {
+        animation: gentleFloat 8s ease-in-out infinite;
+    }
 
-/* Apply to about image frame - offset timing */
-.image-frame {
-    animation: gentleFloat 9s ease-in-out infinite 0.5s;
-}
+    /* Apply to about image frame - offset timing */
+    .image-frame {
+        animation: gentleFloat 9s ease-in-out infinite 0.5s;
+    }
 
-/* Simple hover scale */
-.image-wrapper:hover,
-.image-frame:hover {
-    transform: scale(1.03);
-    transition: transform 0.3s ease;
+    /* Simple hover scale */
+    .image-wrapper:hover,
+    .image-frame:hover {
+        transform: scale(1.03);
+        transition: transform 0.3s ease;
+    }
 }

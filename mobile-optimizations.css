@@ -1,51 +1,63 @@
-/* Mobile Performance Optimizations */
+/* AGGRESSIVE Mobile Performance Optimizations */
 
 @media (max-width: 768px) {
 
-    /* Smaller, lighter planet for mobile */
+    /* Completely disable planet - too heavy */
     body::before {
-        width: 500px !important;
-        height: 500px !important;
-        opacity: 0.15 !important;
+        width: 400px !important;
+        height: 400px !important;
+        opacity: 0.05 !important;
         animation: none !important;
-        /* Disable rotation on mobile for performance */
+        will-change: auto !important;
     }
 
-    /* Disable floating animations on mobile */
+    /* Disable all floating animations */
     .image-wrapper,
     .image-frame {
         animation: none !important;
+        will-change: auto !important;
     }
 
-    /* Faster, simpler transitions */
+    /* Instant transitions */
     .project-card {
-        transition: transform 0.2s ease !important;
+        transition: transform 0.15s ease !important;
     }
 
     .project-card:hover {
         transform: translateY(-5px) !important;
     }
 
-    /* Optimize overlay */
+    /* Remove backdrop-filter - very expensive */
     .project-overlay {
         backdrop-filter: none !important;
-        background: rgba(10, 10, 15, 0.92) !important;
+        background: rgba(10, 10, 15, 0.95) !important;
     }
 
-    /* Disable heavy effects */
+    /* Disable all heavy effects */
     * {
         will-change: auto !important;
         backface-visibility: visible !important;
+    }
+
+    /* Disable planet rotation completely */
+    @keyframes planetRotate {
+
+        from,
+        to {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
     }
 }
 
 @media (max-width: 480px) {
 
-    /* Even smaller planet on very small screens */
+    /* Even lighter planet on very small screens */
     body::before {
-        width: 350px !important;
-        height: 350px !important;
-        opacity: 0.1 !important;
+        width: 300px !important;
+        height: 300px !important;
+        opacity: 0.03 !important;
+        display: none !important;
+        /* Hide completely on small screens */
     }
 
     /* Single column for projects */
@@ -59,9 +71,9 @@
         min-height: 180px !important;
     }
 
-    /* Reduce all transitions */
+    /* Instant transitions */
     * {
-        transition-duration: 0.15s !important;
+        transition-duration: 0.1s !important;
     }
 }
 
