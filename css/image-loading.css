@@ -1,28 +1,32 @@
-/* Mobile-ONLY: Instant loading styles */
+/* Mobile: Blur-up loading for INSTANT feel */
 @media (max-width: 768px) {
 
-    /* Remove any loading delays */
-    .project-bg-img {
-        opacity: 1;
+    /* Blur-up placeholder state */
+    .project-bg-img.blur-up {
+        filter: blur(10px);
+        transform: scale(1.1);
         transition: none;
-        /* No transitions - instant */
-        will-change: auto;
-        /* Don't wait for GPU */
+        /* Instant */
     }
 
-    /* Ensure images load fast */
-    .project-card {
-        contain: layout style;
-        /* Optimize rendering */
+    /* Loaded state - smooth transition */
+    .project-bg-img.loaded {
+        filter: blur(0);
+        transform: scale(1);
+        transition: filter 0.3s ease-out, transform 0.3s ease-out;
     }
 
-    /* Optimize project grid for mobile */
-    .work-grid {
-        contain: layout;
+    /* Ensure smooth rendering */
+    .project-bg-img {
+        will-change: filter, transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
 }
 
-/* Desktop - untouched */
+/* Desktop - UNTOUCHED */
 @media (min-width: 769px) {
-    /* Desktop keeps everything as is */
+    .project-bg-img {
+        /* Desktop keeps original behavior */
+    }
 }
