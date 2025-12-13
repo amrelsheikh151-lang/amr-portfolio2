@@ -77,7 +77,7 @@ body::before {
     transform: translate(-50%, -50%);
     width: 800px;
     height: 800px;
-    background-image: url('images/purple-planet.png');
+    background-image: url('https://res.cloudinary.com/dwib2lgzp/image/upload/v1765629168/%D8%B5%D8%B5_dbyyyb.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
