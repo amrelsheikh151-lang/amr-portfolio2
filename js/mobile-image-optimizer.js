@@ -1,55 +1,70 @@
-// Optimize image loading for mobile
+// Mobile-ONLY Image Optimization - Desktop untouched
 document.addEventListener('DOMContentLoaded', function () {
-    // Add Intersection Observer for lazy loading
+    // Only run on mobile devices
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) {
+        console.log('Desktop detected - skipping mobile optimizations');
+        return; // Exit early on desktop
+    }
+
+    console.log('Mobile detected - applying optimizations');
+
+    // Aggressive mobile optimization
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
+                const originalSrc = img.getAttribute('data-src') || img.src;
 
-                // Get original src
-                const originalSrc = img.src;
-
-                // Check if it's a Cloudinary URL
+                // Only optimize Cloudinary images
                 if (originalSrc.includes('cloudinary.com')) {
-                    // Add mobile optimizations to Cloudinary URL
-                    let optimizedSrc = originalSrc;
+                    // AGGRESSIVE mobile optimization
+                    const optimizedSrc = originalSrc.replace(
+                        '/upload/',
+                        '/upload/f_auto,q_70,w_600,c_limit,dpr_auto/'
+                    );
 
-                    // Check if on mobile
-                    if (window.innerWidth <= 768) {
-                        // Insert transformations before the version number
-                        optimizedSrc = originalSrc.replace(
-                            '/upload/',
-                            '/upload/f_auto,q_auto,w_800,c_limit/'
-                        );
-                    } else {
-                        // Desktop - still optimize but larger
-                        optimizedSrc = originalSrc.replace(
-                            '/upload/',
-                            '/upload/f_auto,q_auto,w_1200,c_limit/'
-                        );
-                    }
+                    console.log('Loading optimized image:', optimizedSrc);
 
-                    // Load optimized image
-                    img.src = optimizedSrc;
-                }
-
-                // Add loaded class for fade-in effect
-                img.onload = function () {
+                    // Create new image to preload
+                    const tempImg = new Image();
+                    tempImg.onload = function () {
+                        img.src = optimizedSrc;
+                        img.classList.remove('loading');
+                        img.classList.add('loaded');
+                    };
+                    tempImg.src = optimizedSrc;
+                } else {
+                    img.classList.remove('loading');
                     img.classList.add('loaded');
-                };
+                }
 
                 observer.unobserve(img);
             }
         });
     }, {
-        rootMargin: '50px' // Start loading 50px before image enters viewport
+        rootMargin: '100px', // Start loading earlier
+        threshold: 0.01
     });
 
-    // Observe all project images
-    const projectImages = document.querySAll('.project-bg-img');
+    // Find all project images
+    const projectImages = document.querySelectorAll('.project-bg-img');
+    console.log('Found', projectImages.length, 'project images');
+
     projectImages.forEach(img => {
+        // Store original src
+        if (!img.getAttribute('data-src')) {
+            img.setAttribute('data-src', img.src);
+        }
+
         // Add loading class
         img.classList.add('loading');
+
+        // Clear src to prevent loading
+        img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+
+        // Observe
         imageObserver.observe(img);
     });
 });
