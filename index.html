@@ -9,26 +9,532 @@
     <meta name="author" content="Amr Elsheikh">
     <title>Amr Elsheikh | Graphic Designer & Video Editor</title>
 
-    <!-- Preconnect for faster loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://res.cloudinary.com">
+    <!-- EXTREME Mobile Optimization - All CSS Inline -->
+    <style>
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            /* Load external CSS for desktop only */
+        }
+    </style>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <!-- Mobile-only inline CSS -->
+    <style media="(max-width: 768px)">
+        /* Complete mobile CSS inlined - NO external requests */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            animation: none !important;
+            transition: none !important;
+        }
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/image-loading.css">
-    <link rel="stylesheet" href="lazy-load.css?v=20251213">
-    <link rel="stylesheet" href="project-images-fix.css?v=20251213">
-    <link rel="stylesheet" href="animations.css?v=20251213">
-    <link rel="stylesheet" href="profile-animations.css?v=20251213">
-    <link rel="stylesheet" href="mobile-optimizations.css?v=20251213">
+        body::before,
+        body::after {
+            display: none !important;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0a0a0f;
+            padding: 1rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .nav-container {
+            max-width: 100%;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #a78bfa;
+        }
+
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 60px;
+            width: 100%;
+            background: #13131a;
+            padding: 2rem 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-menu li {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .nav-link {
+            color: #b4b4b4;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 5rem 1rem 3rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            width: 100%;
+        }
+
+        .hero-image {
+            margin-bottom: 2rem;
+        }
+
+        .image-wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #8b7355);
+            padding: 4px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .greeting {
+            display: block;
+            font-size: 1rem;
+            color: #b4b4b4;
+            margin-bottom: 0.5rem;
+        }
+
+        .name {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #a78bfa;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 0.95rem;
+            color: #b4b4b4;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6, #8b7355);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #8b5cf6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(26, 26, 36, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 3rem 1rem;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #a78bfa;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #b4b4b4;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .about {
+            background: #13131a;
+        }
+
+        .about-content {
+            text-align: center;
+        }
+
+        .image-frame {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #8b5cf6, #8b7355);
+            padding: 4px;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #a78bfa;
+        }
+
+        .about-text p {
+            color: #b4b4b4;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 10px;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: #a78bfa;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #b4b4b4;
+            font-size: 0.9rem;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #1a1a24;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            height: 200px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .project-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .project-card:active .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #a78bfa;
+        }
+
+        .project-overlay p {
+            color: #b4b4b4;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .project-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border: 2px solid #8b5cf6;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .skills {
+            background: #13131a;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(26, 26, 36, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #a78bfa;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: #b4b4b4;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: #1a1a24;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #8b5cf6, #8b7355);
+            border-radius: 10px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #8b5cf6, #8b7355);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            color: #a78bfa;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-text p {
+            color: #b4b4b4;
+        }
+
+        .contact-social h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #a78bfa;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .social-card {
+            background: rgba(26, 26, 36, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-card i {
+            font-size: 2rem;
+            color: #a78bfa;
+        }
+
+        .whatsapp-card {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-card i {
+            color: #25d366;
+        }
+
+        .footer {
+            background: #13131a;
+            padding: 2rem 0;
+            text-align: center;
+            color: #b4b4b4;
+        }
+
+        .footer i {
+            color: #8b5cf6;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: #b4b4b4;
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .project-card:nth-child(n+7) {
+            display: none;
+        }
+    </style>
+
+    <!-- Desktop CSS - only load on desktop -->
+    <link rel="stylesheet" href="style.css" media="(min-width: 769px)">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style"
+        onload="if(window.innerWidth>768)this.rel='stylesheet'" media="(min-width: 769px)">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
+        onload="if(window.innerWidth>768)this.rel='stylesheet'" media="(min-width: 769px)">
 </head>
 
 <body>
@@ -599,10 +1105,36 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/mobile-image-optimizer.js"></script>
-    <script src="lazy-load.js"></script>
-    <script src="script.js"></script>
+    <!-- JavaScript - Mobile optimized -->
+    <script>
+        // Inline minimal JS for instant execution
+        const isMobile = window.innerWidth <= 768;
+
+        // Mobile menu
+        if (isMobile) {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => navMenu.classList.remove('active'));
+                });
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+    <!-- Load image optimizer and full script only on mobile/desktop respectively -->
+    <script src="js/mobile-image-optimizer.js" defer></script>
+    <script src="script.js" defer media="(min-width: 769px)"></script>
 </body>
 
 </html>

@@ -92,7 +92,7 @@ window.addEventListener('scroll', () => {
         window.requestAnimationFrame(handleScroll);
         ticking = true;
     }
-});
+}, { passive: true }); // Passive for better scroll performance
 
 // Intersection Observer for scroll animations
 const observerOptions = {
@@ -173,9 +173,14 @@ if ('IntersectionObserver' in window) {
     images.forEach(img => imageObserver.observe(img));
 }
 
-// Stats animation
+// Stats animation - DESKTOP ONLY
 const statItems = document.querySelectorAll('.stat-item h4');
 const animateStats = () => {
+    // Skip on mobile for performance
+    if (isMobile) {
+        return;
+    }
+
     statItems.forEach(stat => {
         const target = parseInt(stat.textContent);
         let current = 0;
@@ -197,7 +202,7 @@ const animateStats = () => {
 
 // Observe about section for stats animation
 const aboutSection = document.querySelector('.about');
-if (aboutSection) {
+if (aboutSection && !isMobile) {
     const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

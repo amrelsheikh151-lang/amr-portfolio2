@@ -1,89 +1,126 @@
-/* AGGRESSIVE Mobile Performance Optimizations */
+/* ULTRA AGGRESSIVE Mobile Performance - MAXIMUM SPEED */
 
 @media (max-width: 768px) {
 
-    /* Completely disable planet - too heavy */
+    /* COMPLETELY REMOVE planet background - too heavy */
     body::before {
-        width: 400px !important;
-        height: 400px !important;
-        opacity: 0.05 !important;
+        display: none !important;
+    }
+
+    /* Remove gradient overlay too */
+    body::after {
+        display: none !important;
+    }
+
+    /* DISABLE ALL ANIMATIONS */
+    *,
+    *::before,
+    *::after {
         animation: none !important;
-        will-change: auto !important;
-    }
-
-    /* Disable all floating animations */
-    .image-wrapper,
-    .image-frame {
-        animation: none !important;
-        will-change: auto !important;
-    }
-
-    /* Instant transitions */
-    .project-card {
-        transition: transform 0.15s ease !important;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px) !important;
-    }
-
-    /* Remove backdrop-filter - very expensive */
-    .project-overlay {
-        backdrop-filter: none !important;
-        background: rgba(10, 10, 15, 0.95) !important;
-    }
-
-    /* Disable all heavy effects */
-    * {
+        transition: none !important;
         will-change: auto !important;
         backface-visibility: visible !important;
     }
 
-    /* Disable planet rotation completely */
-    @keyframes planetRotate {
+    /* Only allow minimal hover effects */
+    .project-card {
+        transition: transform 0.1s ease !important;
+    }
 
-        from,
-        to {
-            transform: translate(-50%, -50%) rotate(0deg);
-        }
+    .project-card:hover {
+        transform: translateY(-3px) !important;
+    }
+
+    /* Remove ALL backdrop filters - very expensive */
+    .project-overlay,
+    .navbar.scrolled {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* Solid backgrounds instead */
+    .navbar.scrolled {
+        background: #0a0a0f !important;
+    }
+
+    .project-overlay {
+        background: rgba(10, 10, 15, 0.97) !important;
+    }
+
+    /* Remove shadows - expensive */
+    .project-card,
+    .social-link,
+    .btn-primary,
+    .image-wrapper,
+    .image-frame {
+        box-shadow: none !important;
+    }
+
+    /* Disable gradient animations */
+    .name {
+        background: #a78bfa !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        animation: none !important;
+    }
+
+    /* Simplify buttons */
+    .btn {
+        box-shadow: none !important;
+    }
+
+    /* Remove floating animations */
+    .hero-content,
+    .hero-image {
+        animation: none !important;
+    }
+
+    /* Disable parallax */
+    .hero-content,
+    .hero-image {
+        transform: none !important;
+    }
+
+    /* Optimize rendering */
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeSpeed;
     }
 }
 
 @media (max-width: 480px) {
 
-    /* Even lighter planet on very small screens */
-    body::before {
-        width: 300px !important;
-        height: 300px !important;
-        opacity: 0.03 !important;
-        display: none !important;
-        /* Hide completely on small screens */
-    }
-
-    /* Single column for projects */
+    /* Single column layout */
     .work-grid {
         grid-template-columns: 1fr !important;
-        gap: 0.8rem !important;
+        gap: 0.75rem !important;
     }
 
-    /* Smaller project cards */
+    /* Smaller cards */
     .project-card {
-        min-height: 180px !important;
+        min-height: 160px !important;
     }
 
-    /* Instant transitions */
-    * {
-        transition-duration: 0.1s !important;
+    /* Reduce padding */
+    section {
+        padding: 2.5rem 0 !important;
+    }
+
+    .container {
+        padding: 0 1rem !important;
     }
 }
 
-/* Disable animations on low-end devices */
-@media (prefers-reduced-motion: reduce) {
+/* Force disable animations on ALL mobile devices */
+@media (hover: none) and (pointer: coarse) {
 
     *,
     *::before,
     *::after {
-        animation: none !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
 }
