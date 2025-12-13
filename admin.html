@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin - Add Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+
+        .image-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .image-input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .image-input-row input {
+            flex: 1;
+        }
+
+        .image-input-row .number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .output {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            display: none;
+        }
+
+        .output.show {
+            display: block;
+        }
+
+        .output h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .output pre {
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 12px;
+            line-height: 1.6;
+            border: 1px solid #e0e0e0;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left-color: #28a745;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .success.show {
+            display: block;
+        }
+
+        .add-image-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .add-image-btn:hover {
+            background: #218838;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #0c5460;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎨 Portfolio Admin</h1>
+        <p class="subtitle">Add new projects with Cloudinary images</p>
+
+        <div class="info-box">
+            <strong>📝 Instructions:</strong><br>
+            1. Enter project name and category<br>
+            2. Paste Cloudinary image URLs (first image = cover)<br>
+            3. Click "Generate Code"<br>
+            4. Copy the code and send it to me to add to your portfolio!
+        </div>
+
+        <form id="projectForm">
+            <div class="form-group">
+                <label>Project Number (1-20)</label>
+                <input type="number" id="projectNumber" min="1" max="20" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Project Name</label>
+                <input type="text" id="projectName" placeholder="e.g., Sea Air Logistics Company" required>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select id="projectCategory" required>
+                    <option value="branding">Brand Design</option>
+                    <option value="campaign">Marketing Campaign</option>
+                    <option value="product">Product Design</option>
+                    <option value="health">Health Campaign</option>
+                    <option value="print">Print Design</option>
+                    <option value="video">Motion Graphics</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Project Description</label>
+                <textarea id="projectDescription" placeholder="Brief description of the project"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Cloudinary Image URLs</label>
+                <div class="image-inputs" id="imageInputs">
+                    <div class="image-input-row">
+                        <span class="number">1</span>
+                        <input type="url" placeholder="https://res.cloudinary.com/..." required>
+                    </div>
+                </div>
+                <button type="button" class="add-image-btn" onclick="addImageInput()">+ Add Image</button>
+            </div>
+
+            <button type="submit" class="btn">🚀 Generate Code</button>
+        </form>
+
+        <div class="success" id="successMsg">
+            ✅ Code generated! Copy it and send to me.
+        </div>
+
+        <div class="output" id="output">
+            <h3>📋 Generated Code</h3>
+            <pre id="generatedCode"></pre>
+        </div>
+    </div>
+
+    <script>
+        let imageCount = 1;
+
+        function addImageInput() {
+            imageCount++;
+            const container = document.getElementById('imageInputs');
+            const row = document.createElement('div');
+            row.className = 'image-input-row';
+            row.innerHTML = `
+                <span class="number">${imageCount}</span>
+                <input type="url" placeholder="https://res.cloudinary.com/..." required>
+            `;
+            container.appendChild(row);
+        }
+
+        document.getElementById('projectForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const projectNum = document.getElementById('projectNumber').value;
+            const projectName = document.getElementById('projectName').value;
+            const category = document.getElementById('projectCategory').value;
+            const description = document.getElementById('projectDescription').value;
+
+            const imageInputs = document.querySelectorAll('.image-input-row input');
+            const imageUrls = Array.from(imageInputs).map(input => input.value).filter(url => url);
+
+            if (imageUrls.length === 0) {
+                alert('Please add at least one image URL!');
+                return;
+            }
+
+            const categoryNames = {
+                'branding': 'Brand Design',
+                'campaign': 'Marketing Campaign',
+                'product': 'Product Design',
+                'health': 'Health Campaign',
+                'print': 'Print Design',
+                'video': 'Motion Graphics'
+            };
+
+            const code = `PROJECT ${projectNum}: ${projectName}
+Category: ${categoryNames[category]}
+Images: ${imageUrls.length}
+
+COVER IMAGE:
+${imageUrls[0]}
+
+ALL IMAGES:
+${imageUrls.map((url, i) => `${i + 1}. ${url}`).join('\n')}
+
+DESCRIPTION:
+${description || 'Complete project for ' + projectName}`;
+
+            document.getElementById('generatedCode').textContent = code;
+            document.getElementById('output').classList.add('show');
+            document.getElementById('successMsg').classList.add('show');
+
+            // Scroll to output
+            document.getElementById('output').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
