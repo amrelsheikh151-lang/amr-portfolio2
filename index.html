@@ -371,9 +371,11 @@
             opacity: 0;
             padding: 1rem;
             text-align: center;
+            transition: opacity 0.2s ease !important;
         }
 
-        .project-card:active .project-overlay {
+        .project-card:active .project-overlay,
+        .project-card.show-overlay .project-overlay {
             opacity: 1;
         }
 
@@ -531,7 +533,7 @@
 
         .scroll-indicator {
             position: absolute;
-            bottom: 30px;
+            bottom: 120px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -540,6 +542,7 @@
             gap: 10px;
             color: #b4b4b4;
             cursor: pointer;
+            font-size: 0.9rem;
         }
 
         img {
@@ -1141,6 +1144,18 @@
                     link.addEventListener('click', () => navMenu.classList.remove('active'));
                 });
             }
+
+            // Project overlay - stays visible on tap
+            window.addEventListener('DOMContentLoaded', () => {
+                const projectCards = document.querySelectorAll('.project-card');
+                projectCards.forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        if (e.target.closest('.project-link')) return;
+                        projectCards.forEach(c => c !== card && c.classList.remove('show-overlay'));
+                        card.classList.toggle('show-overlay');
+                    });
+                });
+            });
         }
 
         // Smooth scroll
