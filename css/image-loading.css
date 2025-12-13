@@ -1,0 +1,22 @@
+/* Mobile Image Loading Optimization */
+.project-bg-img.loading {
+    opacity: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    min-height: 300px;
+}
+
+.project-bg-img.loaded {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Faster image loading on mobile */
+@media (max-width: 768px) {
+    .project-bg-img {
+        will-change: opacity;
+    }
+
+    .project-bg-img.loading {
+        min-height: 250px;
+    }
+}
