@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Registration & Workflow System - Amr Elsheikh</title>
+    <link rel="stylesheet" href="project-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .system-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .highlight-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            border-color: var(--lime-main);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px var(--lime-glow);
+        }
+
+        .highlight-box i {
+            font-size: 1.8rem;
+            color: var(--lime-main);
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+
+        .highlight-box h4 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .highlight-box p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .system-stats-banner {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: rgba(13, 16, 23, 0.95);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.8rem 2.5rem;
+            margin: 2rem 0 3rem;
+            text-align: center;
+        }
+
+        .stat-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat-badge .num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--lime-main);
+            line-height: 1;
+            text-shadow: 0 0 15px var(--lime-glow);
+        }
+
+        .stat-badge .label {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .system-preview-frame {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--card-border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(204, 255, 0, 0.2);
+            transition: all 0.4s ease;
+            background: #05070a;
+        }
+
+        .system-preview-frame:hover {
+            border-color: var(--lime-main);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 45px var(--lime-glow);
+        }
+
+        .system-preview-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .tech-pill {
+            background: rgba(204, 255, 0, 0.1);
+            color: var(--lime-main);
+            border: 1px solid rgba(204, 255, 0, 0.25);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back to Portfolio -->
+    <a href="../index.html#work" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <span class="project-category">Web Application & Internal Operations System</span>
+            <h1 class="project-title">Product Registration & Workflow Platform</h1>
+            <p class="project-description">
+                A custom-built internal regulatory web application and centralized database designed to monitor, track, and streamline commercial feed additive product registrations, ministerial dossiers, and official compliance approvals.
+            </p>
+            <div class="project-meta">
+                <span><i class="fas fa-calendar"></i> 2026</span>
+                <span><i class="fas fa-laptop-code"></i> Web App & Database Architecture</span>
+                <span><i class="fas fa-building"></i> Elsalhy Group Internal Operations</span>
+            </div>
+            <div class="tech-tags">
+                <span class="tech-pill">Web Platform</span>
+                <span class="tech-pill">Regulatory Database</span>
+                <span class="tech-pill">Automated Expiry Alerts</span>
+                <span class="tech-pill">Dossier Management</span>
+                <span class="tech-pill">Cloud Drive Sync</span>
+                <span class="tech-pill">Internal Operations Automation</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Banner -->
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;">
+        <div class="system-stats-banner">
+            <div class="stat-badge">
+                <span class="num">491</span>
+                <span class="label">Total Managed Registrations</span>
+            </div>
+            <div class="stat-badge">
+                <span class="num" style="color: #22c55e;">400</span>
+                <span class="label">Active Valid Approvals</span>
+            </div>
+            <div class="stat-badge">
+                <span class="num" style="color: #ef4444;">90</span>
+                <span class="label">Expired / Renewal Backlog</span>
+            </div>
+            <div class="stat-badge">
+                <span class="num" style="color: #eab308;">152</span>
+                <span class="label">Expiring Within 1 Year</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Features Grid -->
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;">
+        <div class="system-highlight-grid">
+            <div class="highlight-box">
+                <i class="fas fa-hourglass-half"></i>
+                <h4>Countdown Expiry Tracking</h4>
+                <p>Automated timeline classification filtering registrations by remaining validity (1 year, 9 months, 6 months, 3 months) with live countdown badges (e.g. ينتهي خلال 22 يوم).</p>
+            </div>
+            <div class="highlight-box">
+                <i class="fas fa-search"></i>
+                <h4>Multi-Parameter Filtering</h4>
+                <p>Instant search by Active Ingredient (L-Lysine, DL-Methionine, Mineral Chelates), Country of Origin (China, EU), Registration Code, or Foreign Supplier.</p>
+            </div>
+            <div class="highlight-box">
+                <i class="fas fa-folder-open"></i>
+                <h4>Cloud Drive & Dossier Linking</h4>
+                <p>Direct synchronization with shared company cloud storage folders (مجلدات الدرايف) for instant retrieval of technical certificates and official submission files.</p>
+            </div>
+            <div class="highlight-box">
+                <i class="fas fa-tasks"></i>
+                <h4>Daily Task & Follow-up Pipelines</h4>
+                <p>Integrated workflow tools including daily priority assignments (تاسكات اليوم), specialized executive follow-up sheets, and team note boards.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Interface Preview -->
+    <section class="project-gallery">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;">
+            <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary);">
+                <i class="fas fa-desktop" style="color: var(--lime-main); margin-right: 8px;"></i>
+                Live Interface Dashboard
+            </h3>
+            <div class="system-preview-frame">
+                <img src="../images/registration-system.png"
+                    alt="Product Registration & Regulatory Operations Web System Interface" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <section class="project-navigation">
+        <a href="project-20.html" class="nav-project prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>Previous Project</span>
+        </a>
+        <a href="project-1.html" class="nav-project next">
+            <span>Next Project</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="project-footer">
+        <p>&copy; 2026 Amr Elsheikh. All rights reserved.</p>
+    </footer>
+    <script src="gallery.js"></script>
+</body>
+
+</html>
