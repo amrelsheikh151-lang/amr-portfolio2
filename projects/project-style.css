@@ -1,22 +1,26 @@
 /* Project Page Styles */
 
 :root {
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #13131a;
-    --bg-tertiary: #1a1a24;
-    --purple-light: #a78bfa;
-    --purple-main: #8b5cf6;
-    --purple-dark: #7c3aed;
-    --purple-glow: rgba(139, 92, 246, 0.3);
+    --bg-primary: #07080b;
+    --bg-secondary: #0d1017;
+    --bg-tertiary: #141923;
+    --purple-light: #e6ff66;
+    --lime-light: #e6ff66;
+    --purple-main: #ccff00;
+    --lime-main: #ccff00;
+    --purple-dark: #a3d900;
+    --lime-dark: #a3d900;
+    --purple-glow: rgba(204, 255, 0, 0.35);
+    --lime-glow: rgba(204, 255, 0, 0.35);
     --brown-light: #a0826d;
     --brown-main: #8b7355;
     --brown-dark: #6b5744;
     --text-primary: #ffffff;
     --text-secondary: #b4b4b4;
     --text-muted: #6b6b6b;
-    --accent-gradient: linear-gradient(135deg, var(--purple-main), var(--brown-main));
-    --card-bg: rgba(26, 26, 36, 0.6);
-    --card-border: rgba(139, 92, 246, 0.2);
+    --accent-gradient: linear-gradient(135deg, #ccff00 0%, #10b981 100%);
+    --card-bg: rgba(16, 21, 30, 0.75);
+    --card-border: rgba(204, 255, 0, 0.2);
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
