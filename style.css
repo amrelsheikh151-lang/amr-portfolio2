@@ -335,12 +335,28 @@ body::after {
 
 .hero-role .tag {
     font-size: 0.85rem;
-    padding: 0.25rem 0.75rem;
+    padding: 0.3rem 0.8rem;
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
     color: var(--text-secondary);
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all var(--transition-fast);
+}
+
+.hero-role .tag.tag-highlight {
+    background: rgba(204, 255, 0, 0.12);
+    border-color: rgba(204, 255, 0, 0.5);
+    color: var(--lime-main);
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.15);
+}
+
+.hero-role .tag:hover {
+    transform: translateY(-2px);
+    border-color: var(--lime-main);
 }
 
 .hero-description {
