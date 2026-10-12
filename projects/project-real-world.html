@@ -1,0 +1,851 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-World Exhibition & Print Execution - Amr Elsheikh</title>
+    <link rel="stylesheet" href="project-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .rw-page-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .rw-stats-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1.2rem;
+            background: rgba(13, 16, 23, 0.95);
+            border: 1px solid rgba(204, 255, 0, 0.25);
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin: 1.5rem 0 3rem;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(204, 255, 0, 0.08);
+        }
+
+        .rw-stat-item .num {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--lime-main);
+            line-height: 1.1;
+            text-shadow: 0 0 15px var(--lime-glow);
+        }
+
+        .rw-stat-item .label {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .rw-section-heading {
+            text-align: center;
+            margin: 3.5rem 0 2rem;
+        }
+
+        .rw-section-heading .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(204, 255, 0, 0.12);
+            color: var(--lime-main);
+            border: 1px solid rgba(204, 255, 0, 0.35);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.8rem;
+        }
+
+        .rw-section-heading h2 {
+            font-size: 2rem;
+            color: var(--text-primary);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .rw-section-heading h2 span {
+            color: var(--lime-main);
+        }
+
+        .rw-section-heading p {
+            color: var(--text-secondary);
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        /* Hero Spotlight Grid */
+        .rw-spotlight-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .rw-spotlight-main,
+        .rw-spotlight-side-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #0b0e14;
+            border: 1px solid rgba(204, 255, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+
+        .rw-spotlight-side {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .rw-spotlight-main:hover,
+        .rw-spotlight-side-card:hover {
+            border-color: var(--lime-main);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 30px rgba(204, 255, 0, 0.22);
+        }
+
+        .rw-spotlight-main img,
+        .rw-spotlight-side-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .rw-spotlight-main:hover img,
+        .rw-spotlight-side-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .rw-spotlight-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.8rem 1.5rem 1.3rem;
+            background: linear-gradient(0deg, rgba(7, 8, 11, 0.96) 0%, rgba(7, 8, 11, 0.65) 65%, transparent 100%);
+        }
+
+        .rw-spotlight-caption .tag {
+            display: inline-block;
+            background: var(--lime-main);
+            color: #07080b;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.22rem 0.75rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 0.45rem;
+        }
+
+        .rw-spotlight-caption h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .rw-spotlight-caption p {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+        }
+
+        /* Design vs Reality Split Cards */
+        .rw-compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.6rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .rw-compare-card {
+            background: rgba(13, 16, 23, 0.95);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.2rem;
+            transition: all 0.35s ease;
+        }
+
+        .rw-compare-card:hover {
+            border-color: var(--lime-main);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(204, 255, 0, 0.18);
+            transform: translateY(-4px);
+        }
+
+        .rw-compare-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            position: relative;
+            align-items: stretch;
+        }
+
+        .rw-compare-half {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #06080c;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            aspect-ratio: 3 / 4;
+            cursor: pointer;
+        }
+
+        .rw-compare-half img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .rw-compare-half:hover img {
+            transform: scale(1.06);
+        }
+
+        .rw-compare-pill {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 0.2rem 0.65rem;
+            border-radius: 50px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .rw-compare-pill.design {
+            background: rgba(7, 8, 11, 0.85);
+            color: var(--lime-main);
+            border: 1px solid var(--lime-main);
+        }
+
+        .rw-compare-pill.reality {
+            background: var(--lime-main);
+            color: #07080b;
+        }
+
+        .rw-compare-info {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .rw-compare-info h4 {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+
+        .rw-compare-info span {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .rw-compare-badge {
+            background: rgba(204, 255, 0, 0.12);
+            color: var(--lime-main);
+            border: 1px solid rgba(204, 255, 0, 0.3);
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* Category Filter Tabs */
+        .rw-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .rw-tab-btn {
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .rw-tab-btn:hover {
+            border-color: var(--lime-main);
+            color: var(--lime-main);
+        }
+
+        .rw-tab-btn.active {
+            background: var(--lime-main);
+            border-color: var(--lime-main);
+            color: #07080b;
+            box-shadow: 0 0 18px var(--lime-glow);
+            font-weight: 700;
+        }
+
+        /* Masonry / Aspect-Aware Gallery Grid */
+        .rw-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .rw-item-card {
+            background: rgba(13, 16, 23, 0.95);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rw-item-card.wide-card {
+            grid-column: span 2;
+        }
+
+        .rw-item-card:hover {
+            border-color: var(--lime-main);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85), 0 0 25px rgba(204, 255, 0, 0.22);
+        }
+
+        .rw-item-frame {
+            width: 100%;
+            background: #05070a;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rw-item-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.45s ease;
+        }
+
+        .rw-item-card:hover .rw-item-frame img {
+            transform: scale(1.04);
+        }
+
+        .rw-item-meta {
+            padding: 1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .rw-item-meta h4 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+
+        .rw-item-meta p {
+            color: var(--lime-main);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .rw-zoom-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(204, 255, 0, 0.12);
+            border: 1px solid rgba(204, 255, 0, 0.35);
+            color: var(--lime-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .rw-item-card:hover .rw-zoom-icon {
+            background: var(--lime-main);
+            color: #07080b;
+        }
+
+        @media (max-width: 900px) {
+            .rw-spotlight-grid {
+                grid-template-columns: 1fr;
+            }
+            .rw-item-card.wide-card {
+                grid-column: span 1;
+            }
+            .rw-compare-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back to Portfolio -->
+    <a href="../index.html#work" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <span class="project-category">Real-World Exhibition Booths, Illuminated Lightboxes & Print Production</span>
+            <h1 class="project-title">From Digital Concept to On-Ground Reality</h1>
+            <p class="project-description">
+                A complete production showcase of international veterinary, poultry, and animal nutrition exhibition booths, backlit LED lightboxes, 3D Mupi displays, tall roll-up banners, multi-fold technical brochures, and 25KG industrial packaging executed for global brands.
+            </p>
+            <div class="project-meta">
+                <span><i class="fas fa-award"></i> 39 Executed Works</span>
+                <span><i class="fas fa-globe-europe"></i> International Agribusiness & Vet Brands</span>
+                <span><i class="fas fa-layer-group"></i> 6 Production Categories</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="rw-page-container">
+        <!-- Stats Banner -->
+        <div class="rw-stats-banner">
+            <div class="rw-stat-item">
+                <span class="num">39</span>
+                <span class="label">Total Production Pieces</span>
+            </div>
+            <div class="rw-stat-item">
+                <span class="num">12</span>
+                <span class="label">Live Exhibition Photos</span>
+            </div>
+            <div class="rw-stat-item">
+                <span class="num">17</span>
+                <span class="label">Lightboxes & 3D Mupis</span>
+            </div>
+            <div class="rw-stat-item">
+                <span class="num">6</span>
+                <span class="label">Tall Roll-Up Stands</span>
+            </div>
+            <div class="rw-stat-item">
+                <span class="num">4</span>
+                <span class="label">Brochures & 25KG Packaging</span>
+            </div>
+        </div>
+
+        <!-- 1. Executive Booth Spotlight -->
+        <div class="rw-section-heading">
+            <span class="badge"><i class="fas fa-camera-retro"></i> On-Ground Execution (ط£ط±ط¶ ط§ظ„ظˆط§ظ‚ط¹)</span>
+            <h2>Live International <span>Exhibition Booths</span></h2>
+            <p>Full booth branding, backlit display pillars, reception counters, and printed marketing collateral photographed live on the exhibition floor.</p>
+        </div>
+
+        <div class="rw-spotlight-grid gallery-grid">
+            <div class="rw-spotlight-main gallery-item"><img src="../images/real-world/on-ground/ground-11-img_1550.jpg" alt="Megatrade & Elsalhy Group Exhibition Booth"><div class="rw-spotlight-caption"><span class="tag">360° Booth Architecture</span><h3>Megatrade & Elsalhy Group Exhibition Pavilion</h3><p>Complete booth branding, illuminated walls, flags, and brochure stands designed & executed from concept to installation.</p></div></div>
+            <div class="rw-spotlight-side">
+                <div class="rw-spotlight-side-card gallery-item">
+                    <img src="../images/real-world/on-ground/ground-11-img_1550.jpg" alt="Full Wide View of Megatrade & Elsalhy Group Exhibition Booth">
+                    <div class="rw-spotlight-caption">
+                        <span class="tag">360آ° Booth Architecture</span>
+                        <h3>GastroVit & VemoZyme Illuminated Walls</h3>
+                        <p>Wide-format backlit structural graphics & reception counter branding.</p>
+                    </div>
+                </div>
+                <div class="rw-spotlight-side-card gallery-item">
+                    <img src="../images/real-world/on-ground/ground-00.jpg" alt="Horizon Global Nutrition Solutions Exhibition Booth">
+                    <div class="rw-spotlight-caption">
+                        <span class="tag">Corporate Booth Identity</span>
+                        <h3>Horizon Global Nutrition Solutions Pavilion</h3>
+                        <p>Full-wall product portfolio display & branded reception podium.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Digital Design vs. Live Reality Proof -->
+        <div class="rw-section-heading">
+            <span class="badge"><i class="fas fa-exchange-alt"></i> Design â‍” Reality Proof</span>
+            <h2>Digital Artwork vs. <span>Manufactured Stand</span></h2>
+            <p>Side-by-side verification showing the original digital design file alongside the actual printed and illuminated display photographed at the exhibition.</p>
+        </div>
+
+        <div class="rw-compare-grid gallery-grid">
+            <!-- Pair 1: Prosol Care-Plus -->
+            <div class="rw-compare-card">
+                <div class="rw-compare-pair">
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill design">Digital Design</span>
+                        <img src="../images/real-world/lightbox/lightbox-2.jpg" alt="Prosol Care-Plus Digital Lightbox Poster">
+                    </div>
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill reality">Live at Expo</span>
+                        <img src="../images/real-world/on-ground/ground-2-img_1195.jpg" alt="Prosol Care-Plus Live Illuminated Stand">
+                    </div>
+                </div>
+                <div class="rw-compare-info">
+                    <div>
+                        <h4>Prosol â€” Care-Plus Hydrolysed Yeast</h4>
+                        <span>Italian Poultry Nutrition آ· Backlit LED Stand</span>
+                    </div>
+                    <span class="rw-compare-badge"><i class="fas fa-check-circle"></i> 1:1 Match</span>
+                </div>
+            </div>
+
+            <!-- Pair 2: Vemo Herb BP -->
+            <div class="rw-compare-card">
+                <div class="rw-compare-pair">
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill design">3D Mockup</span>
+                        <img src="../images/real-world/other-lightbox/vemo-herb.jpg" alt="Vemo Herb BP 3D Lightbox Mockup">
+                    </div>
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill reality">Live at Expo</span>
+                        <img src="../images/real-world/on-ground/ground-3-img_1196.jpg" alt="Vemo Herb BP Live Illuminated Stand">
+                    </div>
+                </div>
+                <div class="rw-compare-info">
+                    <div>
+                        <h4>Vemo99 â€” Vemo Herb BP Phytobiotic</h4>
+                        <span>Bulgarian Feed Additives آ· Illuminated Pillar</span>
+                    </div>
+                    <span class="rw-compare-badge"><i class="fas fa-check-circle"></i> 1:1 Match</span>
+                </div>
+            </div>
+
+            <!-- Pair 3: Josera Josilac -->
+            <div class="rw-compare-card">
+                <div class="rw-compare-pair">
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill design">Digital Design</span>
+                        <img src="../images/real-world/lightbox/lightbox-8.jpg" alt="Josera Josilac Digital Lightbox Poster">
+                    </div>
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill reality">Live at Expo</span>
+                        <img src="../images/real-world/on-ground/ground-1-img_1194.jpg" alt="Josera Josilac Live Illuminated Stand">
+                    </div>
+                </div>
+                <div class="rw-compare-info">
+                    <div>
+                        <h4>Josera â€” Josilac Silage Inoculant</h4>
+                        <span>German Dairy Nutrition آ· Backlit LED Stand</span>
+                    </div>
+                    <span class="rw-compare-badge"><i class="fas fa-check-circle"></i> 1:1 Match</span>
+                </div>
+            </div>
+
+            <!-- Pair 4: Olus+ Lysomix -->
+            <div class="rw-compare-card">
+                <div class="rw-compare-pair">
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill design">Digital Design</span>
+                        <img src="../images/real-world/lightbox/lightbox-10.jpg" alt="Olus+ Lysomix Digital Lightbox Poster">
+                    </div>
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill reality">Live at Expo</span>
+                        <img src="../images/real-world/on-ground/ground-6-img_1201.jpg" alt="Olus+ Lysomix Live Illuminated Stand">
+                    </div>
+                </div>
+                <div class="rw-compare-info">
+                    <div>
+                        <h4>Olus+ â€” Lysomix Fat Utilisation</h4>
+                        <span>Dutch Poultry Additive آ· Backlit LED Stand</span>
+                    </div>
+                    <span class="rw-compare-badge"><i class="fas fa-check-circle"></i> 1:1 Match</span>
+                </div>
+            </div>
+
+            <!-- Pair 5: Yahe Nutrition -->
+            <div class="rw-compare-card">
+                <div class="rw-compare-pair">
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill design">3D Mockup</span>
+                        <img src="../images/real-world/other-lightbox/yahee.jpg" alt="Yahe Nutrition 3D Lightbox Mockup">
+                    </div>
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill reality">Live at Expo</span>
+                        <img src="../images/real-world/on-ground/ground-8-img_1225.jpg" alt="Yahe Nutrition Live Illuminated Stand">
+                    </div>
+                </div>
+                <div class="rw-compare-info">
+                    <div>
+                        <h4>Yahe Nutrition â€” Rumen Protected Tech</h4>
+                        <span>Dairy Performance آ· Backlit LED Stand</span>
+                    </div>
+                    <span class="rw-compare-badge"><i class="fas fa-check-circle"></i> 1:1 Match</span>
+                </div>
+            </div>
+
+            <!-- Pair 6: VemoZyme & GastroVit Booth Wall -->
+            <div class="rw-compare-card">
+                <div class="rw-compare-pair">
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill design">3D Mockup</span>
+                        <img src="../images/real-world/other-lightbox/vemozyme-2.jpg" alt="VemoZyme Range Green Edition Poster">
+                    </div>
+                    <div class="rw-compare-half gallery-item">
+                        <span class="rw-compare-pill reality">Live Booth Wall</span>
+                        <img src="../images/real-world/on-ground/ground-11-img_1550.jpg" alt="VemoZyme & GastroVit Full Booth Wall">
+                    </div>
+                </div>
+                <div class="rw-compare-info">
+                    <div>
+                        <h4>VemoZyme Range & GastroVit</h4>
+                        <span>Full Exhibition Booth Wall Execution</span>
+                    </div>
+                    <span class="rw-compare-badge"><i class="fas fa-check-circle"></i> 1:1 Match</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Complete 39-Piece Archive with Filter Tabs -->
+        <div class="rw-section-heading">
+            <span class="badge"><i class="fas fa-th-large"></i> Full Production Archive (39 Works)</span>
+            <h2>Browse by <span>Production Format</span></h2>
+            <p>Every artwork is displayed in its native print aspect ratio without cropping. Click any piece to inspect in full-screen high resolution.</p>
+        </div>
+
+        <div class="rw-tabs">
+            <button class="rw-tab-btn active" data-rw-tab="all"><i class="fas fa-layer-group"></i> All Works (39)</button>
+            <button class="rw-tab-btn" data-rw-tab="onground"><i class="fas fa-camera"></i> Live Expo Booths (12)</button>
+            <button class="rw-tab-btn" data-rw-tab="lightbox"><i class="fas fa-lightbulb"></i> Illuminated Lightboxes (10)</button>
+            <button class="rw-tab-btn" data-rw-tab="mupi"><i class="fas fa-cube"></i> 3D Mupi Displays (7)</button>
+            <button class="rw-tab-btn" data-rw-tab="rollup"><i class="fas fa-scroll"></i> Roll-Up Banners (6)</button>
+            <button class="rw-tab-btn" data-rw-tab="papers"><i class="fas fa-book-open"></i> Technical Brochures (3)</button>
+            <button class="rw-tab-btn" data-rw-tab="packaging"><i class="fas fa-box-open"></i> 25KG Feed Packaging (1)</button>
+        </div>
+
+        <div class="rw-gallery-grid gallery-grid" id="rwPageGrid">
+            <!-- ON-GROUND (12) -->
+            
+            <div class="rw-item-card wide-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-11-img_1550.jpg" alt="Megatrade & Elsalhy Group Full Booth Architecture" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>GastroVit & VemoZyme Booth Walls</h4><p>Full Exhibition Pavilion</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-00.jpg" alt="Horizon Global Nutrition Solutions Booth" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Horizon Global Nutrition Booth</h4><p>Corporate Pavilion & Counter</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-1-img_1194.jpg" alt="Josera Josilac Live Illuminated Stand" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Josera Josilac Illuminated Stand</h4><p>Live Exhibition Lightbox</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-2-img_1195.jpg" alt="Prosol Care-Plus Live Illuminated Stand" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Prosol Care-Plus Illuminated Stand</h4><p>Live Exhibition Lightbox</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-3-img_1196.jpg" alt="Vemo Herb BP Live Illuminated Stand" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Vemo Herb BP Illuminated Pillar</h4><p>Live Exhibition Lightbox</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-4-img_1197.jpg" alt="Sipena Sipur Slow Release Urea Live Stand" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Sipena Sipur Illuminated Stand</h4><p>Live Exhibition Lightbox</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-5-img_1198.jpg" alt="Sipena Sipur Full Pillar View" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Sipena Sipur Full Display Pillar</h4><p>Live Exhibition Lightbox</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-6-img_1201.jpg" alt="Olus+ Lysomix Live Illuminated Stand" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Olus+ Lysomix Illuminated Stand</h4><p>Live Exhibition Lightbox</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-7-img_1206.jpg" alt="Elsalhy Group Branded Table Flag & Brochures" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Elsalhy Group VIP Table Branding</h4><p>Flags & Printed Collateral</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-8-img_1225.jpg" alt="Yahe Nutrition Live Illuminated Stand" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Yahe Nutrition Illuminated Stand</h4><p>Live Exhibition Lightbox</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="onground">
+                <div class="rw-item-frame"><img src="../images/real-world/on-ground/ground-9-img_1226.jpg" alt="Yahe Nutrition Full Exhibition Display" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Yahe Nutrition Full Display</h4><p>Live Exhibition Lightbox</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+
+            <!-- LIGHTBOX POSTERS (10) -->
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-2.jpg" alt="Prosol Care-Plus Hydrolysed Yeast Lightbox" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Prosol â€” Care-Plus Yeast</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-3.jpg" alt="Prosol Biosprint Live Yeast Lightbox" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Prosol â€” Biosprint Live Yeast</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-4.jpg" alt="Horizon Global Nutrition Portfolio Board" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Horizon Global Nutrition Board</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-5.jpg" alt="IFFCO Energizer RP 10 Bypass Fat" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>IFFCO â€” Energizer RP 10</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-6.jpg" alt="IFFCO Energizer Gold Bypass Fat" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>IFFCO â€” Energizer Gold</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-7.jpg" alt="Josera GastroVit Whole Milk Enhancer" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Josera â€” GastroVit</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-8.jpg" alt="Josera Josilac Silage Inoculant" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Josera â€” Josilac Inoculant</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-9.jpg" alt="Kenon Product Assortment Board" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Kenon â€” Feed Additives Range</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-10.jpg" alt="Olus+ Lysomix Maximum Fat Utilisation" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Olus+ â€” Lysomix</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="lightbox">
+                <div class="rw-item-frame"><img src="../images/real-world/lightbox/lightbox-11.jpg" alt="Olus+ Elan Optigut Monolaurin" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Olus+ â€” Elan Optigut</h4><p>Backlit Lightbox Artwork (4:5)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+
+            <!-- 3D MUPI DISPLAYS (7) -->
+            <div class="rw-item-card gallery-item" data-rw-cat="mupi">
+                <div class="rw-item-frame"><img src="../images/real-world/other-lightbox/vemo-herb.jpg" alt="Vemo Herb BP 3D Mupi Lightbox" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Vemo99 â€” Vemo Herb BP</h4><p>3D Mupi Display Mockup (3:4)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="mupi">
+                <div class="rw-item-frame"><img src="../images/real-world/other-lightbox/vemozyme-1.jpg" alt="VemoZyme Range White Edition 3D Mupi" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>VemoZyme Range (White Edition)</h4><p>3D Mupi Display Mockup (3:4)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="mupi">
+                <div class="rw-item-frame"><img src="../images/real-world/other-lightbox/vemozyme-2.jpg" alt="VemoZyme Range Green Edition 3D Mupi" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>VemoZyme Range (Green Edition)</h4><p>3D Mupi Display Mockup (3:4)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="mupi">
+                <div class="rw-item-frame"><img src="../images/real-world/other-lightbox/porfuma.jpg" alt="Profuma Agravis Speciality Feed 3D Mupi" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Profuma â€” Agravis Speciality</h4><p>3D Mupi Display Mockup (3:4)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="mupi">
+                <div class="rw-item-frame"><img src="../images/real-world/other-lightbox/sea-buff.jpg" alt="Sea Buff Acidosis Buffer 3D Mupi" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Sea Buff â€” Rumen Buffer</h4><p>3D Mupi Display Mockup (3:4)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="mupi">
+                <div class="rw-item-frame"><img src="../images/real-world/other-lightbox/yahee.jpg" alt="Yahe Nutrition 3D Mupi Display" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Yahe Nutrition â€” Dairy Tech</h4><p>3D Mupi Display Mockup (3:4)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="mupi">
+                <div class="rw-item-frame"><img src="../images/real-world/other-lightbox/mixscience.jpg" alt="MiXscience MultiProtect Biotoxins CheckMate" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>MiXscience â€” MultiProtect</h4><p>3D Mupi Display Mockup (3:4)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+
+            <!-- ROLL-UP BANNERS (6) -->
+            <div class="rw-item-card gallery-item" data-rw-cat="rollup">
+                <div class="rw-item-frame"><img src="../images/real-world/rollup/rollup-1.jpg" alt="Kenavet Mycoplasma Antibiotics Roll-Up Banner" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Kenavet â€” Tylvalosin Range</h4><p>Roll-Up Stand Banner (9:16)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="rollup">
+                <div class="rw-item-frame"><img src="../images/real-world/rollup/rollup-2.jpg" alt="Kenavet From Science to Performance Roll-Up" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Kenavet â€” Science to Performance</h4><p>Roll-Up Stand Banner (9:16)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="rollup">
+                <div class="rw-item-frame"><img src="../images/real-world/rollup/rollup-3.jpg" alt="Complete Mycotoxin Protection Shield Roll-Up" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Mycotoxin Protection Shield</h4><p>Roll-Up Stand Banner (9:16)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="rollup">
+                <div class="rw-item-frame"><img src="../images/real-world/rollup/rollup-4.jpg" alt="Kenavet The Guardian Mycotoxin Roll-Up" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Kenavet â€” The Guardian</h4><p>Roll-Up Stand Banner (9:16)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="rollup">
+                <div class="rw-item-frame"><img src="../images/real-world/rollup/rollup-5.jpg" alt="Champrix Champnull Plus 3rd Gen Roll-Up" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Champrix â€” Champnull Plus</h4><p>Roll-Up Stand Banner (9:16)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card gallery-item" data-rw-cat="rollup">
+                <div class="rw-item-frame"><img src="../images/real-world/rollup/rollup-6.jpg" alt="Kenavet Free of Mycoplasma Roll-Up" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Kenavet â€” Free of Mycoplasma</h4><p>Roll-Up Stand Banner (9:16)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+
+            <!-- BROCHURES & FLYERS (3) -->
+            <div class="rw-item-card wide-card gallery-item" data-rw-cat="papers">
+                <div class="rw-item-frame"><img src="../images/real-world/papers/paper-1.jpg" alt="Champnull Plus Multi-Fold Technical Brochure" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Champnull Plus (Macrovet / Champrix)</h4><p>Tri-Fold Technical Brochure Spread</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card wide-card gallery-item" data-rw-cat="papers">
+                <div class="rw-item-frame"><img src="../images/real-world/papers/paper-2.jpg" alt="CreaPlus Guanidinoacetic Acid 4-Panel Brochure" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>CreaPlus GAA (Kenavet / Lifeng)</h4><p>4-Panel Technical Brochure Mockup</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+            <div class="rw-item-card wide-card gallery-item" data-rw-cat="papers">
+                <div class="rw-item-frame"><img src="../images/real-world/papers/paper-3.jpg" alt="Fermented Soybean Meal FSBM Bilingual Flyer" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Fermented Soybean Meal (FSBM)</h4><p>Bilingual Technical Flyer Spread</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+
+            <!-- 25KG FEED PACKAGING (1) -->
+            <div class="rw-item-card wide-card gallery-item" data-rw-cat="packaging">
+                <div class="rw-item-frame"><img src="../images/real-world/feed-package/feed-package-1.jpg" alt="Compro Napro DW Probiotics 25KG Feed Packaging" loading="lazy"></div>
+                <div class="rw-item-meta"><div><h4>Compro / Napro DW Probiotics (25KG Sack)</h4><p>Industrial Feed Bag Packaging (Front & Back)</p></div><div class="rw-zoom-icon"><i class="fas fa-expand"></i></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Navigation -->
+    <section class="project-navigation">
+        <a href="project-registration-system.html" class="nav-project prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>Previous Project</span>
+        </a>
+        <a href="project-1.html" class="nav-project next">
+            <span>Next Project</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="project-footer">
+        <p>&copy; 2026 Amr Elsheikh. All rights reserved.</p>
+    </footer>
+
+    <script src="gallery.js"></script>
+    <script>
+        const rwTabs = document.querySelectorAll('.rw-tab-btn');
+        const rwCards = document.querySelectorAll('#rwPageGrid .rw-item-card');
+        rwTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                rwTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const cat = tab.getAttribute('data-rw-tab');
+                rwCards.forEach(card => {
+                    if (cat === 'all' || card.getAttribute('data-rw-cat') === cat) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
