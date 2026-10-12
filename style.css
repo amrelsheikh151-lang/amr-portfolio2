@@ -1824,7 +1824,8 @@ section {
    REAL-WORLD EXECUTION & EXHIBITION PRODUCTION SHOWCASE
    ========================================================================== */
 .rw-showcase-wrapper {
-    margin-top: 4.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
     padding: 3rem 2.2rem;
     background: linear-gradient(180deg, rgba(13, 16, 23, 0.95) 0%, rgba(7, 8, 11, 0.98) 100%);
     border: 1px solid rgba(204, 255, 0, 0.28);
